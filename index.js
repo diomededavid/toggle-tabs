@@ -35,7 +35,7 @@ var contentTabs = function () {
 
   /**
  * Set links to active
- * @param {Node} 
+ * @param
  */
 
   let activeLinks = function (event) {
