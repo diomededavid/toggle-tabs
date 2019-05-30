@@ -24,22 +24,29 @@
 		}
 
     ul {
-      display: grid;
-      grid-template-columns: repeat(3, max-content);
-      grid-gap: 20px;
-      align-items: space-between;
+      list-style: none;
+      padding: 0;
     }
 
     li {
-      list-style: none;
+      display: inline-flex;
       margin: 10px auto;
       text-align: left;
-  
       border-radius: 3px 3px 0 0;
       padding: 5px; 
       transition: all .3s ease-in-out;
       justify-items: space-between;
       height: 30px;
+      color: grey;
+    }
+
+      li:first-of-type::after {
+        content: "|";
+        padding: 0 10px;
+    }
+      li:last-of-type::before {
+        content: "|";
+        padding: 0 10px;
     }
 
     li:hover {
@@ -52,7 +59,7 @@
 
     a {
       text-decoration: none;
-      color: black;
+      color: inherit
     }
 
   .tab-pane {
