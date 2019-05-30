@@ -2,7 +2,6 @@
 import 'normalize.css'
 import './style.css';
 
-
 const elem = document.querySelector('#app');
 
 
