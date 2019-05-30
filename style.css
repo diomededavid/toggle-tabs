@@ -46,7 +46,7 @@
       border-bottom: 2px solid greenyellow;
     }
 
-    li:active {
+    li a .active {
       border-bottom: 2px solid teal;
     }
 

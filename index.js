@@ -3,13 +3,13 @@ import 'normalize.css'
 import './style.css';
 
 
-const elem = document.querySelector('#tabs');
+const elem = document.querySelector('#app');
 
 
 var contentTabs = function () {
   // Get all of the headings
   let headings = document.querySelectorAll('h2');
-  let tab = document.querySelector('#tabs');
+  let tab = document.querySelector('#app');
 
   /**
    * Get the heading ID (or create one if it doesn't have one)
@@ -30,12 +30,12 @@ var contentTabs = function () {
   });
 
   if (tab && tabItems.length > 0) {
-    tab.innerHTML = `<ul> ${tabItems.join('')}</ul>`
+    tab.innerHTML += `<ul id="tabs"> ${tabItems.join('')}</ul>`
   };
 
   /**
  * Set links to active
- * @param
+ * 
  */
 
   let activeLinks = function (event) {
