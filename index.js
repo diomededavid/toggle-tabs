@@ -1,21 +1,38 @@
 // Import stylesheets
 import './style.css';
 
-// // Write Javascript code!
-// const appDiv = document.getElementById('app');
-// appDiv.innerHTML = `<h1>JS Starter</h1>`;
+
+const elem = document.querySelector('#tabs');
 
 
-const element = document.querySelector('#tabs');
+var tableOfContents = function () {
+  // Get all of the headings
+  let headings = document.querySelectorAll('h2');
+  let tab = document.querySelector('#tabs');
 
+  /**
+   * Get the heading ID (or create one if it doesn't have one)
+   * @param  {Node}   elem The element
+   * @return {String}      The ID
+   */
 
-element.addEventListener('click', function (event) {
-  let activeTabs = document.querySelectorAll('.active');
+  let getID = function (elem) {
+    // If the element doesn't have an ID create one
+    if (!elem.id) {
+      elem.id = elem.textContent.replace(new RegExp(' ', 'g'), '-').toLowerCase();
+    }
+    return elem.id;
+  }
 
-  activeTabs.forEach(function (tab) {
-    tab.className = tab.className.replace('active', '');
+  let tabItems = Array.prototype.map.call(headings, function (heading) {
+    return `<li><a href="#${getID(heading)}">${heading.textContent}</a></li>`;
   });
-  event.target.parentElement.className == 'active';
-  document.getElementById(event.target.href.split('#')[1]).className += ' active';
+  
+  console.log(tabItems);
+  if (tab && tabItems.length > 0) {
+    tab.innerHTML = `<ul> ${tabItems.join('')}</ul>`
+  };
 
-}, false);
+}
+
+tableOfContents();
