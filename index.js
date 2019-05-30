@@ -1,11 +1,12 @@
 // Import stylesheets
+import 'normalize.css'
 import './style.css';
 
 
 const elem = document.querySelector('#tabs');
 
 
-var tableOfContents = function () {
+var contentTabs = function () {
   // Get all of the headings
   let headings = document.querySelectorAll('h2');
   let tab = document.querySelector('#tabs');
@@ -27,12 +28,30 @@ var tableOfContents = function () {
   let tabItems = Array.prototype.map.call(headings, function (heading) {
     return `<li><a href="#${getID(heading)}">${heading.textContent}</a></li>`;
   });
-  
-  console.log(tabItems);
+
   if (tab && tabItems.length > 0) {
     tab.innerHTML = `<ul> ${tabItems.join('')}</ul>`
   };
 
+  /**
+ * Set links to active
+ * @param {Node} 
+ */
+
+  let activeLinks = function (event) {
+    let tabItems = document.querySelectorAll('.active');
+
+    tabItems.forEach(function (tab) {
+      tab.className = tab.className.replace('active', '');
+    });
+    event.target.parentElement.className == 'active';
+    document.getElementById(event.target.href.split('#')[1]).className += ' active';
+
+  }
+
+
+  elem.addEventListener('click', activeLinks, false);
+
 }
 
-tableOfContents();
+contentTabs();
