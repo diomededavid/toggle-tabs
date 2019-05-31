@@ -5,7 +5,7 @@ import './style.css';
 const elem = document.querySelector('#app');
 
 
-var contentTabs = function () {
+let contentTabs = function () {
   // Get all of the headings
   let headings = document.querySelectorAll('h2');
   let tab = document.querySelector('#app');
@@ -41,10 +41,10 @@ var contentTabs = function () {
     let tabItems = document.querySelectorAll('.active');
 
     tabItems.forEach(function (tab) {
-      tab.className = tab.className.replace('active', '');
+       tab.classList.remove('active');
     });
-    event.target.parentElement.className == 'active';
-    document.getElementById(event.target.href.split('#')[1]).className += ' active';
+    event.target.classList.add('active');
+    document.querySelector(event.target.hash).classList.add('active');
 
   }
 
